@@ -12,7 +12,6 @@ import se.kth.iv1350.carInspection.integration.*;
  * All calls to the model pass through here.
  *
  */
-
 public class Controller {
 	
 	private Printer printer;
@@ -28,8 +27,7 @@ public class Controller {
 	 * @param printer The printer that prints all documents.
 	 * @param databaseManager The database manager used for all database calls.
 	 * @param creditCardReader The credit card reader used for all card transactions.
-	 */
-	
+	 */	
 	public Controller(Printer printer, DatabaseManager databaseManager, CreditCardReader creditCardReader) {
 		this.printer = printer;
 		this.databaseManager = databaseManager;
@@ -39,8 +37,7 @@ public class Controller {
 	
 	/**
 	 * This method calls methods in the garage class to call in the next customer.
-	 */
-	
+	 */	
 	public void callInNextCustomer(){
 		garage.nextCustomer();
 		garage.closeDoor();
@@ -62,12 +59,12 @@ public class Controller {
 		garage.closeDoor();
 	}
 	
+	
 	/**
 	 * Asks to calculate the total cost for this inspection.
 	 * @param regNo The registration number for the specified vehicle.
 	 * @return cost The total cost.
-	 */
-	
+	 */	
 	public Amount askForCostByRegNo(String regNo){
 		inspection = new Inspection(regNo, databaseManager, printer);
 		return inspection.calculateCost();          
@@ -90,8 +87,7 @@ public class Controller {
      /**
       * Request the inspection list for this vehicle.
       * @return the inspection list.
-      */
-     
+      */     
       public List<InspectionItem> requestInspections(){
           List<InspectionItem> inspectionList = inspection.getInspectionList();
           return inspectionList;
@@ -102,8 +98,7 @@ public class Controller {
        * Forwards the updated inspection result for this part of the inspection.
        * @param passedInspection The inspection result.
        * @param checklistIndex The specified row of the inspection list.
-       */
-      
+       */     
         public void enterResult(String passedInspection, int checklistIndex){
             inspection.inspectionResult.handleInspectionResult(passedInspection, checklistIndex);
         }

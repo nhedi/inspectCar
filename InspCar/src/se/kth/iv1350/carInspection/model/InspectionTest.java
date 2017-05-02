@@ -35,8 +35,6 @@ public class InspectionTest {
         Inspection instance = new Inspection(regNo, databaseManager, printer);
         Amount expResult = new Amount(195);
         Amount result = instance.calculateCost();
-        assertEquals("Calculated cost is incorrect", expResult, result);
-       
-    }
-    
+        assertEquals("Calculated cost is incorrect", expResult, result);      
+    }    
 }

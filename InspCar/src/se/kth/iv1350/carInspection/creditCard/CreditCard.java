@@ -17,6 +17,7 @@ public final class CreditCard {
     private final YearMonth expiryDate;
     private final int CVC;
 
+    
     /**
      * Creates a new instance representing the specified card.
      *
@@ -34,6 +35,7 @@ public final class CreditCard {
         this.CVC = CVC;
     }
 
+    
     /**
      * @return the CVC code
      */
@@ -41,6 +43,7 @@ public final class CreditCard {
         return CVC;
     }
 
+    
     /**
      * @return the expiry date
      */
@@ -48,6 +51,7 @@ public final class CreditCard {
         return expiryDate;
     }
 
+    
     /**
      * @return the card holder's name.
      */
@@ -55,6 +59,7 @@ public final class CreditCard {
         return holder;
     }
 
+    
     /**
      * @return the card number
      */
@@ -62,6 +67,7 @@ public final class CreditCard {
         return number;
     }
 
+    
     /**
      * @return the pin code.
      */

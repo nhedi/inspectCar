@@ -21,8 +21,7 @@ public class Inspection {
 	 * @param regNo The registration number of the specified vehicle.
 	 * @param databaseManager The database manager to use when searching for inspections for the specified vehicle.
 	 * @param printer The printer that is being used when printing the inspection result.
-	 */
-	
+	 */	
 	public Inspection(String regNo, DatabaseManager databaseManager, Printer printer){
 		this.regNo = regNo;
 		this.inspectionList = databaseManager.getInspections(regNo);
@@ -40,8 +39,7 @@ public class Inspection {
 		int totalCost = 0;
 		for(InspectionItem inspList : inspectionList){
 			totalCost = totalCost + inspList.getCost();
-		}
-		
+		}		
 		Amount cost = new Amount (totalCost);
 		return cost;
 	}
@@ -50,7 +48,7 @@ public class Inspection {
 	/**
 	 * @return The inspection list for the specified vehicle.
 	 */
-        public List<InspectionItem> getInspectionList(){
-            return inspectionList;
-        }
+	public List<InspectionItem> getInspectionList(){
+		return inspectionList;
+	}
 }

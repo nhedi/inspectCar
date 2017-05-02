@@ -23,14 +23,15 @@ public class InspectionItem {
 		this.inspectionResult = inspectionResult;
 	}
 	
+	
 	/**
 	 * 
 	 * @return The vehicle part that should be inspected
-	 */
-	
+	 */	
 	public String getVehiclePart(){
 		return vehiclePart;
 	}
+	
 	
     /**
      * @return The cost of this control.
@@ -48,28 +49,28 @@ public class InspectionItem {
 	}
         
 
-        /**
-         * Updates the inspection result.
-         * @param updatedInspectionResult The inspection result.
-         */
-        public void updateResult(String updatedInspectionResult){
-            this.inspectionResult = updatedInspectionResult;
-        }
+	/**
+	* Updates the inspection result.
+	* @param updatedInspectionResult The inspection result.
+	*/
+	public void updateResult(String updatedInspectionResult){
+		this.inspectionResult = updatedInspectionResult;
+	}
 	
 	
-	  /**
-	    * @return True if the specified object is considered to represent the same inspection item as
-	    *         this object.
-	    */
-	   @Override
-	   public boolean equals(Object other) {
-	       if (other == null) {
-	           return false;
-	       }
-	       if (!(other instanceof InspectionItem)) {
-	           return false;
-	       }
-	       InspectionItem otherInspItem = (InspectionItem) other;
-	       return otherInspItem.cost == this.cost && otherInspItem.vehiclePart == this.vehiclePart;
-	   }
+	/**
+	* @return True if the specified object is considered to represent the same inspection item as
+	*         this object.
+	*/
+	@Override
+	public boolean equals(Object other) {
+		if (other == null) {
+			return false;
+		}
+		if (!(other instanceof InspectionItem)) {
+			return false;
+		}
+		InspectionItem otherInspItem = (InspectionItem) other;
+		return otherInspItem.cost == this.cost && otherInspItem.vehiclePart == this.vehiclePart;
+		}
 }

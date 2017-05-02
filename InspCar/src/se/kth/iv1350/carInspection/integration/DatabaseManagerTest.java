@@ -43,5 +43,4 @@ public class DatabaseManagerTest {
            assertEquals("Wrong inspection list: ", expResult.get(i), inspectionList.get(i));
        }
    }
-
 }

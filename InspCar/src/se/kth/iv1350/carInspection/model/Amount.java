@@ -37,8 +37,7 @@ public class Amount {
 	       if (!(other instanceof Amount)) {
 	           return false;
 	       }
-	       Amount otherInspItem = (Amount)other;
-               
+	       Amount otherInspItem = (Amount)other;              
 	       return otherInspItem.value == this.value;
-	   }
+	}
 }

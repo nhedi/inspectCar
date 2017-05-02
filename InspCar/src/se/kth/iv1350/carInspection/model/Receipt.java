@@ -24,7 +24,8 @@ public class Receipt {
         this.card = card;
         this.cost = cost;            
     }
-  
+ 
+    
     /**
      * @return The approvement of the card transaction.
      */
@@ -32,6 +33,7 @@ public class Receipt {
        return approvment;
     }
 
+    
     /**
      * @return The credit card.
      */
@@ -39,6 +41,7 @@ public class Receipt {
        return card;
     }
 
+    
     /**
      * @return The total cost of the inspection.
      */
@@ -54,5 +57,5 @@ public class Receipt {
         return "\nApproved: " + this.approvment +
                "\nCreditcard number: " + card.getNumber() +
                "\nCost: " + this.cost.getAmount();
-      }
+	}
 }

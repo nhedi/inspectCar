@@ -22,8 +22,7 @@ public class InspectionResult {
 	 * @param regNo The registration number for the specified vehicle.
 	 * @param inspectionList The list of inspections to do.
 	 * @param databaseManager The database manager that handles the communication with the database.
-	 */
-	
+	 */	
 	InspectionResult(String regNo, List<InspectionItem> inspectionList, DatabaseManager databaseManager, Printer printer){
 		this.regNo = regNo;
 		this.inspectionList = inspectionList;
@@ -54,8 +53,7 @@ public class InspectionResult {
 	public String toString(){
 		StringBuilder result = new StringBuilder ("Registration number: " + regNo);
 		for(int i=0; i<inspectionList.size(); i++)
-			result.append("\n" + this.inspectionList.get(i).getVehiclePart() + "  " + this.inspectionList.get(i).getInspectionResult());
-                
+			result.append("\n" + this.inspectionList.get(i).getVehiclePart() + "  " + this.inspectionList.get(i).getInspectionResult());                
             return result.toString();
         }      
 }

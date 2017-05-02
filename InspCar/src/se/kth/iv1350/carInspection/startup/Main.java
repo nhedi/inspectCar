@@ -9,16 +9,14 @@ import se.kth.iv1350.carInspection.controller.Controller;
 /**
  * Starts the application.
  */
-
 public class Main {
-	
 
+	
 	/**
 	 * This is the application's main method, which start the entire car inspection system.
 	 * 
 	 * @param args There are no command line parameters.
-	 */
-	
+	 */	
 	public static void main(String [] args){
 		DatabaseManager databaseManager = new DatabaseManager();
 		Printer printer = new Printer();
@@ -27,5 +25,4 @@ public class Main {
 		View view = new View(controller);
 		view.start();
 	}
-
 }

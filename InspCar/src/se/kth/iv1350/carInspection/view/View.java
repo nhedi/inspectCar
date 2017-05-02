@@ -19,8 +19,7 @@ public class View {
      * Creates a new instance that will use the specified controller for all system operations.
      * 
      * @param controller The controller to use for system operations.
-     */
-	
+     */	
 	public View(Controller controller) {
 		this.controller = controller;
 	}
@@ -28,10 +27,8 @@ public class View {
 	
     /**
      * Calls all system operations and prints the result to <code>System.out</code>.
-     */
-	
-	public void start()	{
-            
+     */	
+	public void start()	{           
         String passedInspection = "passed";
         int checklistIndex;
 		String regNo = "ABC123";
@@ -47,8 +44,7 @@ public class View {
     		checklistIndex = i;
         	System.out.print("Screen output: Inspection " + (i+1) + ": " + inspections.get(i).getVehiclePart() + "\n*Interacts* Inspector enters inspection result.\n");
             controller.enterResult(passedInspection, checklistIndex);
-        }
-        
+        }        
         controller.openGarageDoor();
         controller.closeGarageDoor();
 	}
