@@ -1,29 +1,26 @@
 package se.kth.iv1350.carInspection.integration;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import se.kth.iv1350.carInspection.model.Amount;
 
 /**
  * Represents an particular control of a vehicle and it's cost.
  */
-public class InspectionChecklist {
+public class InspectionItem {
 	private String vehiclePart;
 	private int cost;
-        private String passedInspection;
+	private String inspectionResult;
 	
+        
      /**
      * Creates new instance representing the specified control.
      * 
      * @param vehiclePart The specific vehicle part of this control.
      * @param cost The cost of this control.
+     * @param inspectionResult The inspection result.
      */
-	
-	public InspectionChecklist (String vehiclePart, int cost, String passedInspection){
+	public InspectionItem (String vehiclePart, int cost, String inspectionResult){
 		this.vehiclePart = vehiclePart;
 		this.cost = cost;
-                this.passedInspection = passedInspection;
+		this.inspectionResult = inspectionResult;
 	}
 	
 	/**
@@ -41,13 +38,22 @@ public class InspectionChecklist {
 	public int getCost(){
 		return cost;
 	}
-        
-        public String getPassedInspection(){
-		return passedInspection;
+     
+	
+	/**
+	 * @return The inspection result.
+	 */
+        public String getInspectionResult(){
+		return inspectionResult;
 	}
         
-        public void updateResult(String passInspection){
-            this.passedInspection = passInspection;
+
+        /**
+         * Updates the inspection result.
+         * @param updatedInspectionResult The inspection result.
+         */
+        public void updateResult(String updatedInspectionResult){
+            this.inspectionResult = updatedInspectionResult;
         }
 	
 	
@@ -60,10 +66,10 @@ public class InspectionChecklist {
 	       if (other == null) {
 	           return false;
 	       }
-	       if (!(other instanceof InspectionChecklist)) {
+	       if (!(other instanceof InspectionItem)) {
 	           return false;
 	       }
-	       InspectionChecklist otherInspItem = (InspectionChecklist) other;
+	       InspectionItem otherInspItem = (InspectionItem) other;
 	       return otherInspItem.cost == this.cost && otherInspItem.vehiclePart == this.vehiclePart;
 	   }
 }

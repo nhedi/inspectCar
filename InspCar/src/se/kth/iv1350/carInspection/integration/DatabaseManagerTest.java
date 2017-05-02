@@ -11,7 +11,7 @@ import org.junit.Test;
 public class DatabaseManagerTest {
 
    private DatabaseManager databaseManager;
-   private List<InspectionChecklist> inspectionList;
+   private List<InspectionItem> inspectionList;
 
    @Before
    public void setUp() {
@@ -27,19 +27,18 @@ public class DatabaseManagerTest {
    public void testNumberOfFoundInspections() {
        int expResult = 3;
        int result = databaseManager.getInspections("ABC123").size();
-       System.out.println(result);
        assertEquals("Wrong number of inspection items", expResult, result);
    }
 
    @Test
    public void testCorrectInspectionList() {
-       List<InspectionChecklist> expResult = new ArrayList<>();
-       expResult.add(new InspectionChecklist("Brakes", 105, "Failed"));
-       expResult.add(new InspectionChecklist("Engine", 65, "Failed"));
-       expResult.add(new InspectionChecklist("Lights", 25, "Failed"));
+       List<InspectionItem> expResult = new ArrayList<>();
+       expResult.add(new InspectionItem("Brakes", 105, "Failed"));
+       expResult.add(new InspectionItem("Engine", 65, "Failed"));
+       expResult.add(new InspectionItem("Lights", 25, "Failed"));
 
        String regNo = "ABC123";
-       List<InspectionChecklist> inspectionList = databaseManager.getInspections(regNo);
+       List<InspectionItem> inspectionList = databaseManager.getInspections(regNo);
        for (int i = 0; i < expResult.size(); i++) {
            assertEquals("Wrong inspection list: ", expResult.get(i), inspectionList.get(i));
        }

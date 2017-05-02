@@ -9,7 +9,7 @@ import java.util.List;
 
 public class DatabaseManager {
 	
-	private List<InspectionChecklist> inspectionList;
+	private List<InspectionItem> inspectionList;
 
 	/**
      * Creates a new instance, which uses a hard coded list of inspections instead of calling a
@@ -29,7 +29,7 @@ public class DatabaseManager {
      *         control.
      */
 	
-	public List<InspectionChecklist> getInspections(String regNo){
+	public List<InspectionItem> getInspections(String regNo){
 		return inspectionList;
 	}
 	
@@ -39,17 +39,18 @@ public class DatabaseManager {
 	
 	private void createInspections(){
 		inspectionList = new ArrayList<>();
-		inspectionList.add(new InspectionChecklist("Brakes", 105, "Failed"));
-		inspectionList.add(new InspectionChecklist("Engine", 65, "Failed"));
-		inspectionList.add(new InspectionChecklist("Lights", 25, "Failed"));
-		/*for(int i = 0; i < inspectionList.size(); i++)
-		{
-			System.out.println(inspectionList.get(i));
-		}*/
+		inspectionList.add(new InspectionItem("Brakes", 105, "Failed"));
+		inspectionList.add(new InspectionItem("Engine", 65, "Failed"));
+		inspectionList.add(new InspectionItem("Lights", 25, "Failed"));
 	}
         
-        public void saveInspectionResult(String passedInspection, int checklistIndex){
-            inspectionList.get(checklistIndex).updateResult(passedInspection);
-            
-        }
+	
+	/**
+	 * Asks to save the inspection result for the specific inspection in the list.
+	 * @param passedInspection The inspection result.
+	 * @param checklistIndex The row in the specified insection list.
+	 */
+	public void saveInspectionResult(String passedInspection, int checklistIndex){
+		inspectionList.get(checklistIndex).updateResult(passedInspection);    
+	}
 }

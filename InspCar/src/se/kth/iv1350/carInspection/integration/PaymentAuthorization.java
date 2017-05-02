@@ -6,7 +6,7 @@ import se.kth.iv1350.carInspection.model.*;
 /**
  * Handles all communication with the payment authorization system.
  */
-public class PaymentAuthorization {
+class PaymentAuthorization {
 
     /**
      * Requests authorization for the specified payment.
@@ -17,7 +17,7 @@ public class PaymentAuthorization {
      *         <code>false</code> if it is not. This dummy implementation always
      *         returns <code>true</code>.
      */
-    public static boolean authorizePayment(CreditCard card, Amount amount) {
+    boolean authorizePayment(CreditCard card, Amount amount) {
         return true;
     }
 }

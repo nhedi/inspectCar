@@ -1,6 +1,5 @@
 package se.kth.iv1350.carInspection.model;
 
-import se.kth.iv1350.carInspection.integration.InspectionChecklist;
 
 /**
  * This class represents an amount.
@@ -14,21 +13,23 @@ public class Amount {
 	 * Creates a new instance which uses a value and sets it as an <code>Amount</code>-type
 	 * @param value The value that should be converted to an amount.
 	 */
-	
 	public Amount(int value){
 		this.value = value;
 	}
 	
 	
 	/**
-	 * 
 	 * @return an <code>Amount</code>.
 	 */
 	public int getAmount(){
 		return value;
 	}
-        
-        @Override
+     
+	
+	/**
+	 * @return True if the specified object is considered to represent the same cost as this object.
+	 */
+	@Override
 	   public boolean equals(Object other) {
 	       if (other == null) {
 	           return false;

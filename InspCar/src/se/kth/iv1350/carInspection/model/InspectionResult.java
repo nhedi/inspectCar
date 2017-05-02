@@ -11,7 +11,7 @@ import java.util.*;
 public class InspectionResult {
     
     private String regNo;
-    private List<InspectionChecklist> inspectionList;
+    private List<InspectionItem> inspectionList;
     private DatabaseManager databaseManager;
     private Printer printer;
     
@@ -21,31 +21,41 @@ public class InspectionResult {
 	 * the specified vehicle 
 	 * @param regNo The registration number for the specified vehicle.
 	 * @param inspectionList The list of inspections to do.
+	 * @param databaseManager The database manager that handles the communication with the database.
 	 */
 	
-	public InspectionResult(String regNo, List<InspectionChecklist> inspectionList, DatabaseManager databaseManager, Printer printer){
-            this.regNo = regNo;
-            this.inspectionList = inspectionList;
-            this.databaseManager = databaseManager;
-            this.printer = printer;
+	InspectionResult(String regNo, List<InspectionItem> inspectionList, DatabaseManager databaseManager, Printer printer){
+		this.regNo = regNo;
+		this.inspectionList = inspectionList;
+		this.databaseManager = databaseManager;
+		this.printer = printer;
 	}
 
 
-        public void addInspectionResult(String passedInspection, int checklistIndex){
-            
-            databaseManager.saveInspectionResult(passedInspection, checklistIndex);
-            if(checklistIndex == inspectionList.size()-1){
+	/**
+	 * Asks to add the inspection result for the inspection item and asks for print out.
+	 * @param passedInspection
+	 * @param checklistIndex
+	 */
+	public void handleInspectionResult(String passedInspection, int checklistIndex){            
+		int noOfInspections = inspectionList.size()-1;
+		databaseManager.saveInspectionResult(passedInspection, checklistIndex);
+			if(checklistIndex == noOfInspections){
                 String result = this.toString();
                 printer.printInspectionResult(result);
-            }
-           
-        }
-        
-        public String toString(){
-            StringBuilder result = new StringBuilder ("Registration number: " + regNo);
-            for(int i=0; i<inspectionList.size(); i++)
-                result.append("\n" + this.inspectionList.get(i).getVehiclePart() + "  " + this.inspectionList.get(i).getPassedInspection());
+            }           
+	}
+
+	
+	/**
+	 * Converts the inspection result to a string.
+	 * @return the result as a string.
+	 */
+	public String toString(){
+		StringBuilder result = new StringBuilder ("Registration number: " + regNo);
+		for(int i=0; i<inspectionList.size(); i++)
+			result.append("\n" + this.inspectionList.get(i).getVehiclePart() + "  " + this.inspectionList.get(i).getInspectionResult());
                 
             return result.toString();
-        }
+        }      
 }

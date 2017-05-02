@@ -23,6 +23,15 @@ public class Garage {
         display.nextNumber();
     }
 
+    
+    /**
+     * Opens the door
+     */
+    public void openDoor() {
+        door.open();
+    }
+    
+    
     /**
      * Closes the door
      */

@@ -5,6 +5,7 @@ import se.kth.iv1350.carInspection.integration.DatabaseManager;
 import se.kth.iv1350.carInspection.integration.Printer;
 import se.kth.iv1350.carInspection.integration.CreditCardReader;
 import se.kth.iv1350.carInspection.controller.Controller;
+
 /**
  * Starts the application.
  */

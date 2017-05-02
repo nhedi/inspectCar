@@ -32,27 +32,24 @@ public class View {
 	
 	public void start()	{
             
-                String passedInspection = "passed";
-                int checklistIndex;
-		
+        String passedInspection = "passed";
+        int checklistIndex;
 		String regNo = "ABC123";
+		int pin = 1234;
+		
 		controller.callInNextCustomer();
-		Amount cost = controller.enterRegNo(regNo);
-		System.out.println("Screeen output: \nThe total cost is: " + cost.getAmount());
-                
-                int pin = 1234;
-                
-                controller.cardPayment(cost, pin);
-                
-                List <InspectionChecklist> inspections = controller.requestNextInspection();
-                
-                System.out.println("\nScreen output:");
-                
-                for(int i=0; i<inspections.size(); i++){
-                    System.out.print("Screen output: Inspection " + (i+1) + ": " + inspections.get(i).getVehiclePart() + "\n*Interacts* Inspector enters inspection result.\n");
-                    checklistIndex = i;
-                    controller.enterResult(passedInspection, checklistIndex);
-                }
-                    
+		Amount cost = controller.askForCostByRegNo(regNo);
+		System.out.println("Screeen output: \nThe total cost is: " + cost.getAmount());   
+        controller.cardPayment(cost, pin);
+        List <InspectionItem> inspections = controller.requestInspections();
+        System.out.println("\nScreen output:");
+        for(int i=0; i<inspections.size(); i++){
+    		checklistIndex = i;
+        	System.out.print("Screen output: Inspection " + (i+1) + ": " + inspections.get(i).getVehiclePart() + "\n*Interacts* Inspector enters inspection result.\n");
+            controller.enterResult(passedInspection, checklistIndex);
+        }
+        
+        controller.openGarageDoor();
+        controller.closeGarageDoor();
 	}
 }

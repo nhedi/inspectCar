@@ -35,8 +35,7 @@ public class InspectionTest {
         Inspection instance = new Inspection(regNo, databaseManager, printer);
         Amount expResult = new Amount(195);
         Amount result = instance.calculateCost();
-        System.out.println(expResult.getAmount() + " " + result.getAmount());
-        assertEquals("calculated cost is incorrect", expResult, result);
+        assertEquals("Calculated cost is incorrect", expResult, result);
        
     }
     
