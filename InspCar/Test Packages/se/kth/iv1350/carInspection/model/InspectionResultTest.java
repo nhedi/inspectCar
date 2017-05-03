@@ -50,4 +50,15 @@ public class InspectionResultTest {
 		inspectionResult.handleInspectionResult("Passed", 2);
 		assertEquals("Inspection result was not saved", "Passed", databaseManager.getInspections(regNo).get(2).getInspectionResult());	
 	}
+	
+	@Test
+	public void testToStringInspectionResult(){
+		inspectionResult.handleInspectionResult("Passed", 2);
+		String expResult = ("Registration number: " + regNo + "\n" + 
+							"Brakes" + "  " + "Failed" + "\n" + 
+							"Engine" + "  " + "Failed" + "\n" + 
+							"Lights" + "  " + "Passed");
+		String result = inspectionResult.toString();
+		assertEquals("Was not able to create correct string out of the inspection result.", expResult, result);
+	}
 }

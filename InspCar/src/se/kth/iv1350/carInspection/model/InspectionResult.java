@@ -37,6 +37,7 @@ public class InspectionResult {
 	 * @param checklistIndex
 	 */
 	public void handleInspectionResult(String inspectionResult, int checklistIndex){            
+		inspectionList.get(checklistIndex).updateResult(inspectionResult);
 		int noOfInspections = inspectionList.size()-1;
 		databaseManager.saveInspectionResult(inspectionResult, checklistIndex);
 			if(checklistIndex == noOfInspections){
