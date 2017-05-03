@@ -17,7 +17,6 @@ public class InspectionResultTest {
 	private List<InspectionItem> inspectionList;
 	private Printer printer;
 	private String regNo;
-	//private String regNo;
 	
 	
 	@Before
