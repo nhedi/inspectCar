@@ -47,7 +47,7 @@ public class DatabaseManager {
 	/**
 	 * Asks to save the inspection result for the specific inspection in the list.
 	 * @param passedInspection The inspection result.
-	 * @param checklistIndex The row in the specified insection list.
+	 * @param checklistIndex The row in the specified inspection list.
 	 */
 	public void saveInspectionResult(String passedInspection, int checklistIndex){
 		inspectionList.get(checklistIndex).updateResult(passedInspection);    

@@ -11,7 +11,6 @@ import org.junit.Test;
 public class DatabaseManagerTest {
 
    private DatabaseManager databaseManager;
-   private List<InspectionItem> inspectionList;
 
    @Before
    public void setUp() {

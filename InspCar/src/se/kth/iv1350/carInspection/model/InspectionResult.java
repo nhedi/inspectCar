@@ -33,12 +33,12 @@ public class InspectionResult {
 
 	/**
 	 * Asks to add the inspection result for the inspection item and asks for print out.
-	 * @param passedInspection
+	 * @param inspectionResult
 	 * @param checklistIndex
 	 */
-	public void handleInspectionResult(String passedInspection, int checklistIndex){            
+	public void handleInspectionResult(String inspectionResult, int checklistIndex){            
 		int noOfInspections = inspectionList.size()-1;
-		databaseManager.saveInspectionResult(passedInspection, checklistIndex);
+		databaseManager.saveInspectionResult(inspectionResult, checklistIndex);
 			if(checklistIndex == noOfInspections){
                 String result = this.toString();
                 printer.printInspectionResult(result);
@@ -54,6 +54,6 @@ public class InspectionResult {
 		StringBuilder result = new StringBuilder ("Registration number: " + regNo);
 		for(int i=0; i<inspectionList.size(); i++)
 			result.append("\n" + this.inspectionList.get(i).getVehiclePart() + "  " + this.inspectionList.get(i).getInspectionResult());                
-            return result.toString();
-        }      
+		return result.toString();
+	}      
 }

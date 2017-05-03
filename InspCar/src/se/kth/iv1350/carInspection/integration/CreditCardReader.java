@@ -3,7 +3,6 @@ package se.kth.iv1350.carInspection.integration;
 import java.time.YearMonth;
 import se.kth.iv1350.carInspection.model.*;
 import se.kth.iv1350.carInspection.creditCard.*;
-import se.kth.iv1350.carInspection.integration.*;
 
 /**
  * Represents a credit card reader.
